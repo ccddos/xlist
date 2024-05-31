@@ -36,6 +36,7 @@ class DeupChromeSafariBrowser extends ChromeSafariBrowser {
   void onOpened() {}
 
   // @override
+  // void onBrowserCreated(bool? isClosedByUser) {}
   // void onCompletedInitialLoad() {}
 
   @override
