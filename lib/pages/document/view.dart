@@ -66,7 +66,8 @@ class DocumentPage extends GetView<DocumentController> {
     return InAppWebView(
       key: controller.webViewKey,
       initialUrlRequest: URLRequest(
-        url: Uri.parse(controller.object.value.rawUrl ?? ''),
+        // url: Uri.parse(controller.object.value.rawUrl ?? ''),
+        url: WebUri(controller.object.value.rawUrl ?? ''),
         headers: controller.httpHeaders,
       ),
       initialOptions: controller.options,

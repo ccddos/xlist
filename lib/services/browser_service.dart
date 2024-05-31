@@ -18,14 +18,15 @@ class BrowserService extends GetxService {
 
   // Open Browser
   open(String url) {
+    // Weburl/
     // Android
     if (GetPlatform.isAndroid) {
-      _inAppBrowser.openUrlRequest(urlRequest: URLRequest(url: Uri.parse(url)));
+      _inAppBrowser.openUrlRequest(urlRequest: URLRequest(url: WebUri(url)));
     }
 
     // IOS
     if (GetPlatform.isIOS) {
-      _chromeSafariBrowser.open(url: Uri.parse(url));
+      _chromeSafariBrowser.open(url: WebUri(url));
     }
   }
 }
@@ -34,11 +35,16 @@ class DeupChromeSafariBrowser extends ChromeSafariBrowser {
   @override
   void onOpened() {}
 
-  @override
-  void onCompletedInitialLoad() {}
+  // @override
+  // void onCompletedInitialLoad() {}
 
   @override
   void onClosed() {}
+
+  @override
+  void onCompletedInitialLoad(bool? didLoadSuccessfully) {
+    // TODO: implement onCompletedInitialLoad
+  }
 }
 
 class DeupInAppBrowser extends InAppBrowser {
