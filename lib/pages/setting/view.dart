@@ -47,10 +47,10 @@ class SettingPage extends GetView<SettingController> {
       title: Row(
         children: [
           Text(title, style: Get.textTheme.bodyLarge),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
         ],
       ),
-      padding: EdgeInsets.only(left: 15, right: 10),
+      padding: const EdgeInsets.only(left: 15, right: 10),
       leading: Icon(
         icon,
         size: iconSize ?? CommonUtils.navIconSize,
@@ -58,7 +58,7 @@ class SettingPage extends GetView<SettingController> {
       ),
       leadingToTitle: 5,
       additionalInfo: additionalInfo.isEmpty
-          ? SizedBox()
+          ? const SizedBox()
           : Container(
               width: 400.w,
               alignment: Alignment.centerRight,
@@ -117,7 +117,7 @@ class SettingPage extends GetView<SettingController> {
         height: Get.height,
         padding: EdgeInsets.only(bottom: 20.h),
         child: SingleChildScrollView(
-          physics: AlwaysScrollableScrollPhysics(),
+          physics: const AlwaysScrollableScrollPhysics(),
           child: Column(
             children: [
               Obx(
@@ -126,7 +126,7 @@ class SettingPage extends GetView<SettingController> {
                   dividerMargin: 20,
                   additionalDividerMargin: 30,
                   header: Container(
-                    padding: EdgeInsets.only(left: 15),
+                    padding: const EdgeInsets.only(left: 15),
                     alignment: Alignment.centerLeft,
                     child: Text('general'.tr, style: Get.textTheme.bodySmall),
                   ),
@@ -158,7 +158,7 @@ class SettingPage extends GetView<SettingController> {
                 dividerMargin: 20,
                 additionalDividerMargin: 30,
                 header: Container(
-                  padding: EdgeInsets.only(left: 15),
+                  padding: const EdgeInsets.only(left: 15),
                   alignment: Alignment.centerLeft,
                   child: Text('preview'.tr, style: Get.textTheme.bodySmall),
                 ),

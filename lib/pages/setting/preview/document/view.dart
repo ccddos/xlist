@@ -31,7 +31,7 @@ class SettingDocumentPage extends GetView<SettingDocumentController> {
   }) {
     return CupertinoListTile(
       title: Text(title, style: Get.textTheme.bodyLarge),
-      padding: EdgeInsets.only(left: 15, right: 10),
+      padding: const EdgeInsets.only(left: 15, right: 10),
       leading: leading,
       leadingToTitle: 5,
       onTap: onTap,
@@ -47,13 +47,13 @@ class SettingDocumentPage extends GetView<SettingDocumentController> {
         height: Get.height,
         padding: EdgeInsets.only(bottom: 20.h),
         child: SingleChildScrollView(
-          physics: AlwaysScrollableScrollPhysics(),
+          physics: const AlwaysScrollableScrollPhysics(),
           child: CupertinoListSection.insetGrouped(
             backgroundColor: CommonUtils.backgroundColor,
             dividerMargin: 20,
             additionalDividerMargin: 30,
             header: Container(
-              padding: EdgeInsets.only(left: 15),
+              padding: const EdgeInsets.only(left: 15),
               alignment: Alignment.centerLeft,
               child: Text(
                 'setting_preview_document_title'.tr,
@@ -71,7 +71,7 @@ class SettingDocumentPage extends GetView<SettingDocumentController> {
                             size: CommonUtils.navIconSize,
                             color: Get.theme.primaryColor,
                           )
-                        : SizedBox(),
+                        : const SizedBox(),
                   ),
                   onTap: () => controller.toggleDocumentSupportType(type),
                 ),

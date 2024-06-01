@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:get/get_instance/src/extension_instance.dart';
 
 // DeviceInfo
 class DeviceInfoService extends GetxService {

@@ -47,7 +47,7 @@ class DirectoryPage extends GetView<DirectoryController> {
             pageTag: tag ?? '',
           ),
         ),
-        PullDownMenuDivider.large(),
+        const PullDownMenuDivider.large(),
       ]);
     }
 
@@ -120,7 +120,7 @@ class DirectoryPage extends GetView<DirectoryController> {
       return SliverToBoxAdapter(
         child: Padding(
           padding: EdgeInsets.only(top: 500.h),
-          child: CupertinoActivityIndicator(),
+          child: const CupertinoActivityIndicator(),
         ),
       );
     }
@@ -153,7 +153,7 @@ class DirectoryPage extends GetView<DirectoryController> {
                   '${controller.root ? '' : controller.path}/${object.name}';
               Get.to(
                 () => DirectoryPage(tag: path),
-                routeName: '${Routes.DIRECTORY}${path}',
+                routeName: '${Routes.DIRECTORY}$path',
                 arguments: {
                   'path': path,
                   'object': object,
@@ -194,7 +194,7 @@ class DirectoryPage extends GetView<DirectoryController> {
       shrinkWrap: false,
       controller: controller.scrollController,
       slivers: <Widget>[
-        HeaderLocator.sliver(),
+        const HeaderLocator.sliver(),
         Obx(
           () => SliverPadding(
             padding:
@@ -202,7 +202,7 @@ class DirectoryPage extends GetView<DirectoryController> {
             sliver: SizeCacheWidget(child: _buildSliverList()),
           ),
         ),
-        FooterLocator.sliver(),
+        const FooterLocator.sliver(),
       ],
     );
   }
@@ -214,9 +214,9 @@ class DirectoryPage extends GetView<DirectoryController> {
       body: SafeArea(
         child: EasyRefresh(
           controller: controller.easyRefreshController,
-          header: CupertinoHeader(
+          header: const CupertinoHeader(
               position: IndicatorPosition.locator, safeArea: false),
-          footer: CupertinoFooter(position: IndicatorPosition.locator),
+          footer: const CupertinoFooter(position: IndicatorPosition.locator),
           onRefresh: () async {
             await HapticFeedback.selectionClick();
             await controller.getDirectoryList();

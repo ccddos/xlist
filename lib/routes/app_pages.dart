@@ -29,10 +29,10 @@ class AppPages {
 
   static final routes = [
     unknownRoute,
-    GetPage(name: _Paths.SPLASH, page: () => SplashPage()),
+    GetPage(name: _Paths.SPLASH, page: () => const SplashPage()),
     GetPage(
       name: _Paths.HOMEPAGE,
-      page: () => Homepage(),
+      page: () => const Homepage(),
       binding: HomepageBinding(),
       transitionDuration: Duration.zero,
     ),
@@ -44,7 +44,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.SEARCH,
-      page: () => SearchPage(),
+      page: () => const SearchPage(),
       binding: SearchBinding(),
       middlewares: [AuthMiddleware()],
     ),
@@ -56,19 +56,19 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.DOCUMENT,
-      page: () => DocumentPage(),
+      page: () => const DocumentPage(),
       binding: DocumentBinding(),
       middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: _Paths.FILE,
-      page: () => FilePage(),
+      page: () => const FilePage(),
       binding: FileBinding(),
       middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: _Paths.IMAGE_PREVIEW,
-      page: () => ImagePreviewPage(),
+      page: () => const ImagePreviewPage(),
       binding: ImagePreviewBinding(),
       opaque: false,
       showCupertinoParallax: false,
@@ -77,13 +77,13 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.VIDEO_PLAYER,
-      page: () => VideoPlayerPage(),
+      page: () => const VideoPlayerPage(),
       binding: VideoPlayerBinding(),
       middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: _Paths.AUDIO_PLAYER,
-      page: () => AudioPlayerPage(),
+      page: () => const AudioPlayerPage(),
       binding: AudioPlayerBinding(),
       showCupertinoParallax: false,
       transition: Transition.downToUp,
@@ -91,52 +91,52 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.SETTING,
-      page: () => SettingPage(),
+      page: () => const SettingPage(),
       binding: SettingBinding(),
       children: [
         GetPage(
           name: _Paths.SERVER,
-          page: () => ServerPage(),
+          page: () => const ServerPage(),
           binding: ServerBinding(),
         ),
         GetPage(
           name: _Paths.DOWNLOAD,
-          page: () => DownloadPage(),
+          page: () => const DownloadPage(),
           binding: DownloadBinding(),
         ),
         GetPage(
           name: _Paths.ABOUT,
-          page: () => AboutPage(),
+          page: () => const AboutPage(),
           binding: AboutBinding(),
         ),
         GetPage(
           name: _Paths.RECENT,
-          page: () => RecentPage(),
+          page: () => const RecentPage(),
           binding: RecentBinding(),
         ),
         GetPage(
           name: _Paths.FAVORITE,
-          page: () => FavoritePage(),
+          page: () => const FavoritePage(),
           binding: FavoriteBinding(),
         ),
         GetPage(
           name: _Paths.PREVIEW_IMAGE,
-          page: () => SettingImagePage(),
+          page: () => const SettingImagePage(),
           binding: SettingImageBinding(),
         ),
         GetPage(
           name: _Paths.PREVIEW_AUDIO,
-          page: () => SettingAudioPage(),
+          page: () => const SettingAudioPage(),
           binding: SettingAudioBinding(),
         ),
         GetPage(
           name: _Paths.PREVIEW_VIDEO,
-          page: () => SettingVideoPage(),
+          page: () => const SettingVideoPage(),
           binding: SettingVideoBinding(),
         ),
         GetPage(
           name: _Paths.PREVIEW_DOCUMENT,
-          page: () => SettingDocumentPage(),
+          page: () => const SettingDocumentPage(),
           binding: SettingDocumentBinding(),
         ),
       ],
@@ -145,6 +145,6 @@ class AppPages {
 
   static final unknownRoute = GetPage(
     name: _Paths.NOTFOUND,
-    page: () => NotfoundPage(),
+    page: () => const NotfoundPage(),
   );
 }

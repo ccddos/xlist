@@ -32,10 +32,10 @@ class ObjectHelper {
   }) {
     // 文件夹
     if (type == FileType.FOLDER) {
-      final tag = '${path}${name}';
+      final tag = '$path$name';
       Get.to(
         () => DetailPage(tag: tag, previousPageTitle: '返回'),
-        routeName: '${Routes.DETAIL}${tag}',
+        routeName: '${Routes.DETAIL}$tag',
         arguments: {'path': path, 'name': name},
       );
       return;
@@ -128,7 +128,7 @@ class ObjectHelper {
     try {
       SmartDialog.showLoading();
       final response = await ObjectRepository.rename(
-          path: '${path}${object.name}', name: data.first);
+          path: '$path${object.name}', name: data.first);
       if (response['code'] != HttpStatus.ok) {
         throw response['message'];
       }
@@ -155,7 +155,7 @@ class ObjectHelper {
     if (object.isDir == true) {
       final serverUrl = Get.find<UserStorage>().serverUrl.val;
       Clipboard.setData(
-          ClipboardData(text: '${serverUrl}${path}${object.name}'));
+          ClipboardData(text: '$serverUrl$path${object.name}'));
     } else {
       Clipboard.setData(ClipboardData(
         text: CommonUtils.getDownloadLink(
@@ -291,7 +291,7 @@ class ObjectHelper {
     try {
       SmartDialog.showLoading();
       final response =
-          await ObjectRepository.mkdir(path: '${path}/${data.first}');
+          await ObjectRepository.mkdir(path: '$path/${data.first}');
       if (response['code'] != HttpStatus.ok) {
         throw response['message'];
       }

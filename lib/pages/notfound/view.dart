@@ -14,7 +14,7 @@ class NotfoundPage extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(10.r),
           child: GestureDetector(
-            child: Center(child: Text('返回首页')),
+            child: const Center(child: Text('返回首页')),
             onTap: () => Get.offAllNamed(Routes.SPLASH),
           ),
         ),

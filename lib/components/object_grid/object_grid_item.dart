@@ -45,7 +45,7 @@ class _ObjectGridItemState extends State<ObjectGridItem>
               child: CachedNetworkImage(
                 imageUrl: object.thumb!,
                 fit: BoxFit.cover,
-                placeholder: (context, url) => CupertinoActivityIndicator(),
+                placeholder: (context, url) => const CupertinoActivityIndicator(),
                 errorWidget: (context, url, error) =>
                     Assets.common.logo.image(),
               ),
@@ -81,7 +81,7 @@ class _ObjectGridItemState extends State<ObjectGridItem>
     // 格式化时间
     final modified = object.modified == null
         ? ''
-        : '${Jiffy.parseFromDateTime(object.modified!).format(pattern: 'yyyy/MM/dd')}';
+        : Jiffy.parseFromDateTime(object.modified!).format(pattern: 'yyyy/MM/dd');
 
     return Column(
       children: [
@@ -103,7 +103,7 @@ class _ObjectGridItemState extends State<ObjectGridItem>
           overflow: TextOverflow.ellipsis,
         ),
         Text(
-          '${object.isDir! ? '∞' : CommonUtils.formatFileSize(object.size!)}',
+          object.isDir! ? '∞' : CommonUtils.formatFileSize(object.size!),
           style: Get.textTheme.bodySmall,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,

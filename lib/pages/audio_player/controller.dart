@@ -15,7 +15,6 @@ import 'package:xlist/storages/index.dart';
 import 'package:xlist/services/index.dart';
 import 'package:xlist/constants/index.dart';
 import 'package:xlist/repositorys/index.dart';
-import 'package:xlist/helper/fijk_helper.dart';
 import 'package:xlist/database/entity/index.dart';
 
 class AudioPlayerController extends GetxController
@@ -46,9 +45,9 @@ class AudioPlayerController extends GetxController
 
   double seekPos = -1.0.obs;
   final isPlaying = false.obs;
-  final duration = Duration().obs;
-  final currentPos = Duration().obs;
-  final bufferPos = Duration().obs;
+  final duration = const Duration().obs;
+  final currentPos = const Duration().obs;
+  final bufferPos = const Duration().obs;
 
   Timer? _timer;
   Timer? _timerProgress;
@@ -86,7 +85,7 @@ class AudioPlayerController extends GetxController
     // 获取文件信息
     if (file.isEmpty) {
       try {
-        object.value = await ObjectRepository.get(path: '${path}${name}');
+        object.value = await ObjectRepository.get(path: '$path$name');
         httpHeaders.value = await DriverHelper.getHeaders(
             object.value.provider, object.value.rawUrl);
       } catch (e) {
@@ -100,7 +99,7 @@ class AudioPlayerController extends GetxController
         'name': download?.name,
         'type': download?.type,
         'size': download?.size,
-        'raw_url': 'file://${file}',
+        'raw_url': 'file://$file',
       });
     }
 
@@ -127,7 +126,7 @@ class AudioPlayerController extends GetxController
     });
 
     _bufferingSubs = player.onBufferStateUpdate.listen((v) {
-      Future.delayed(Duration(milliseconds: 1000), () {
+      Future.delayed(const Duration(milliseconds: 1000), () {
         audioHandler.updatePlaybackState(player);
       });
     });
@@ -207,7 +206,7 @@ class AudioPlayerController extends GetxController
   /// 通知栏控制器
   void _playerNotificationHandler() {
     _mediaItem = MediaItem(
-      id: '${path}${currentName.value}',
+      id: '$path${currentName.value}',
       title: CommonUtils.formatFileNme(currentName.value),
       duration: player.value.duration,
       artUri: object.value.thumb != null && object.value.thumb!.isNotEmpty
@@ -232,7 +231,7 @@ class AudioPlayerController extends GetxController
     // 获取文件信息
     SmartDialog.showLoading();
     try {
-      object.value = await ObjectRepository.get(path: '${path}${_object.name}');
+      object.value = await ObjectRepository.get(path: '$path${_object.name}');
     } catch (e) {
       SmartDialog.dismiss();
       SmartDialog.showToast(e.toString());
@@ -268,14 +267,14 @@ class AudioPlayerController extends GetxController
       title:
           '定时关闭${_hasTimer ? '(剩余${timerDuration.value.inMinutes + 1}分钟)' : ''}',
       actions: [
-        SheetAction(label: '5分钟', key: 5),
-        SheetAction(label: '10分钟', key: 10),
-        SheetAction(label: '15分钟', key: 15),
-        SheetAction(label: '30分钟', key: 30),
-        SheetAction(label: '60分钟', key: 60),
+        const SheetAction(label: '5分钟', key: 5),
+        const SheetAction(label: '10分钟', key: 10),
+        const SheetAction(label: '15分钟', key: 15),
+        const SheetAction(label: '30分钟', key: 30),
+        const SheetAction(label: '60分钟', key: 60),
         ...[
           if (_hasTimer)
-            SheetAction(label: '关闭定时', key: 0, isDestructiveAction: true)
+            const SheetAction(label: '关闭定时', key: 0, isDestructiveAction: true)
         ].whereType<SheetAction>().toList(),
       ],
       cancelLabel: 'cancel'.tr,
@@ -292,15 +291,15 @@ class AudioPlayerController extends GetxController
 
     _timer?.cancel();
     timerDuration.value = Duration(minutes: value);
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
-      timerDuration.value = timerDuration.value - Duration(seconds: 1);
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      timerDuration.value = timerDuration.value - const Duration(seconds: 1);
       if (timerDuration.value.inSeconds == 0) {
         _timer?.cancel();
         Get.find<AudioPlayerController>().player.pause();
       }
     });
 
-    SmartDialog.showToast('${value}分钟后关闭');
+    SmartDialog.showToast('$value分钟后关闭');
   }
 
   /// 切换播放速度
@@ -308,15 +307,15 @@ class AudioPlayerController extends GetxController
     final value = await showModalActionSheet(
       context: Get.overlayContext!,
       title: 'play_speed'.tr,
-      materialConfiguration: MaterialModalActionSheetConfiguration(),
+      materialConfiguration: const MaterialModalActionSheetConfiguration(),
       actions: [
-        SheetAction(label: '2.0X', key: 2.0),
-        SheetAction(label: '1.8X', key: 1.8),
-        SheetAction(label: '1.5X', key: 1.5),
-        SheetAction(label: '1.2X', key: 1.2),
-        SheetAction(label: '1.0X', key: 1.0),
-        SheetAction(label: '0.5X', key: 0.5),
-        SheetAction(label: '恢复默认', key: 1.0),
+        const SheetAction(label: '2.0X', key: 2.0),
+        const SheetAction(label: '1.8X', key: 1.8),
+        const SheetAction(label: '1.5X', key: 1.5),
+        const SheetAction(label: '1.2X', key: 1.2),
+        const SheetAction(label: '1.0X', key: 1.0),
+        const SheetAction(label: '0.5X', key: 0.5),
+        const SheetAction(label: '恢复默认', key: 1.0),
       ],
       cancelLabel: 'cancel'.tr,
     );
@@ -347,7 +346,7 @@ class AudioPlayerController extends GetxController
 
     // 每五秒记录一下播放进度
     _timerProgress?.cancel();
-    _timerProgress = Timer.periodic(Duration(seconds: 5), (timer) async {
+    _timerProgress = Timer.periodic(const Duration(seconds: 5), (timer) async {
       await DatabaseService.to.database.progressDao.updateProgress(
         ProgressEntity(
           id: _progressId,

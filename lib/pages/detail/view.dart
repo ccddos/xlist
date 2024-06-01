@@ -50,7 +50,7 @@ class DetailPage extends StatelessWidget {
       return SliverToBoxAdapter(
         child: Padding(
           padding: EdgeInsets.only(top: 500.h),
-          child: CupertinoActivityIndicator(),
+          child: const CupertinoActivityIndicator(),
         ),
       );
     }
@@ -83,7 +83,7 @@ class DetailPage extends StatelessWidget {
       shrinkWrap: false,
       controller: controller.scrollController,
       slivers: <Widget>[
-        HeaderLocator.sliver(),
+        const HeaderLocator.sliver(),
         SliverPadding(
           padding: EdgeInsets.symmetric(
               horizontal: CommonUtils.isPad ? 20 : 50.r, vertical: 30.r),
@@ -98,7 +98,7 @@ class DetailPage extends StatelessWidget {
               EdgeInsets.symmetric(horizontal: CommonUtils.isPad ? 15 : 30.r),
           sliver: Obx(() => _buildSliverList()),
         ),
-        FooterLocator.sliver(),
+        const FooterLocator.sliver(),
       ],
     );
   }
@@ -110,9 +110,9 @@ class DetailPage extends StatelessWidget {
       child: SafeArea(
         child: EasyRefresh(
           controller: controller.easyRefreshController,
-          header: CupertinoHeader(
+          header: const CupertinoHeader(
               position: IndicatorPosition.locator, safeArea: false),
-          footer: CupertinoFooter(position: IndicatorPosition.locator),
+          footer: const CupertinoFooter(position: IndicatorPosition.locator),
           onRefresh: () async {
             await HapticFeedback.selectionClick();
             await controller.getObjectList();

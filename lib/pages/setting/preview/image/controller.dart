@@ -7,10 +7,6 @@ class SettingImageController extends GetxController {
   final imageSupportTypes =
       Get.find<PreferencesStorage>().imageSupportTypes.val.obs;
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
   /// 切换图片支持类型
   /// [type] 图片类型

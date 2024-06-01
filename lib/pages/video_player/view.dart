@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:path/path.dart' as p;
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:fijkplayer/fijkplayer.dart';
 import 'package:audio_wave/audio_wave.dart';
@@ -148,7 +147,7 @@ class VideoPlayerPage extends GetView<VideoPlayerController> {
     return CupertinoListTile(
       title: Text(title, style: Get.textTheme.bodyLarge),
       padding: CommonUtils.isPad
-          ? EdgeInsets.only(left: 10, right: 10)
+          ? const EdgeInsets.only(left: 10, right: 10)
           : EdgeInsets.only(left: 40.w, right: 30.w),
       additionalInfo: Container(
         width: MediaQuery.of(Get.context!).orientation == Orientation.portrait
@@ -253,7 +252,7 @@ class VideoPlayerPage extends GetView<VideoPlayerController> {
             // 播放模式按钮切换
             index == 0 && controller.showPlaylist.isTrue
                 ? _buildPlayModeButton()
-                : SizedBox.shrink(),
+                : const SizedBox.shrink(),
             CupertinoListTile(
               title: Container(
                 width: 800.w,
@@ -286,13 +285,13 @@ class VideoPlayerPage extends GetView<VideoPlayerController> {
         vertical: isLandscape ? 20.h : 30.h,
       ),
       child: ToggleSwitch(
-        customWidths: [50, 50, 50],
+        customWidths: const [50, 50, 50],
         inactiveBgColor: CommonUtils.backgroundColor,
         cornerRadius: 15,
         initialLabelIndex: controller.playMode.val,
         totalSwitches: 3,
-        labels: ['', '', ''],
-        customIcons: [
+        labels: const ['', '', ''],
+        customIcons: const [
           Icon(CupertinoIcons.repeat, size: 20),
           Icon(CupertinoIcons.repeat_1, size: 20),
           Icon(CupertinoIcons.stop_circle, size: 20),
@@ -318,7 +317,7 @@ class VideoPlayerPage extends GetView<VideoPlayerController> {
       width: 60.r,
       spacing: CommonUtils.isPad && !isLandscape ? 3.5 : 1.5,
       animationLoop: 3,
-      beatRate: Duration(milliseconds: 150),
+      beatRate: const Duration(milliseconds: 150),
       bars: [bar(0.0), bar(0.3), bar(0.5), bar(0.3), bar(0.7), bar(0.2)],
     );
   }
@@ -385,7 +384,7 @@ class VideoPlayerPage extends GetView<VideoPlayerController> {
       return Column(
         children: [
           SizedBox(height: 600.h),
-          Center(child: CupertinoActivityIndicator()),
+          const Center(child: CupertinoActivityIndicator()),
         ],
       );
     }

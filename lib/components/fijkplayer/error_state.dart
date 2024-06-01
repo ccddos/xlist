@@ -23,8 +23,8 @@ class ErrorState extends StatelessWidget {
   // 返回按钮
   Widget _buildTopBackBtn() {
     return IconButton(
-      icon: Icon(CupertinoIcons.chevron_back),
-      padding: EdgeInsets.only(
+      icon: const Icon(CupertinoIcons.chevron_back),
+      padding: const EdgeInsets.only(
         left: 10.0,
         right: 10.0,
       ),
@@ -65,7 +65,7 @@ class ErrorState extends StatelessWidget {
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
                                 textAlign: TextAlign.left,
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                               ),
                             ),
                           ),
@@ -103,8 +103,8 @@ class ErrorState extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.error, size: 50, color: Colors.white),
-                  SizedBox(height: 5),
+                  const Icon(Icons.error, size: 50, color: Colors.white),
+                  const SizedBox(height: 5),
                   ElevatedButton(
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all(
@@ -135,7 +135,7 @@ class ErrorState extends StatelessWidget {
                     },
                     child: Text(
                       'fijkplayer_retry'.tr,
-                      style: TextStyle(color: Colors.black),
+                      style: const TextStyle(color: Colors.black),
                     ),
                   ),
                 ],

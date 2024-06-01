@@ -18,7 +18,7 @@ class ObjectRepository extends Repository {
   }) async {
     final url = Get.find<UserStorage>().serverUrl.val;
     final response = await Repository.post(
-      '${url}/api/fs/get',
+      '$url/api/fs/get',
       data: {
         'path': path,
         'password': password,
@@ -59,7 +59,7 @@ class ObjectRepository extends Repository {
   }) async {
     final url = Get.find<UserStorage>().serverUrl.val;
     final response = await Repository.post(
-      '${url}/api/fs/list',
+      '$url/api/fs/list',
       data: {
         'path': path,
         'page': page,
@@ -81,7 +81,7 @@ class ObjectRepository extends Repository {
   }) async {
     final url = Get.find<UserStorage>().serverUrl.val;
     final response = await Repository.post(
-      '${url}/api/fs/rename',
+      '$url/api/fs/rename',
       data: {'path': path, 'name': name},
     );
 
@@ -99,7 +99,7 @@ class ObjectRepository extends Repository {
   }) async {
     final url = Get.find<UserStorage>().serverUrl.val;
     final response = await Repository.post(
-      '${url}/api/fs/move',
+      '$url/api/fs/move',
       data: {
         'src_dir': srcDir,
         'dst_dir': dstDir,
@@ -121,7 +121,7 @@ class ObjectRepository extends Repository {
   }) async {
     final url = Get.find<UserStorage>().serverUrl.val;
     final response = await Repository.post(
-      '${url}/api/fs/copy',
+      '$url/api/fs/copy',
       data: {
         'src_dir': srcDir,
         'dst_dir': dstDir,
@@ -141,7 +141,7 @@ class ObjectRepository extends Repository {
   }) async {
     final url = Get.find<UserStorage>().serverUrl.val;
     final response = await Repository.post(
-      '${url}/api/fs/remove',
+      '$url/api/fs/remove',
       data: {
         'dir': path,
         'names': [name]
@@ -158,7 +158,7 @@ class ObjectRepository extends Repository {
   }) async {
     final url = Get.find<UserStorage>().serverUrl.val;
     final response = await Repository.post(
-      '${url}/api/fs/mkdir',
+      '$url/api/fs/mkdir',
       data: {'path': path},
     );
 
@@ -174,11 +174,11 @@ class ObjectRepository extends Repository {
   }) async {
     final url = Get.find<UserStorage>().serverUrl.val;
     final response = await DioService.to.dio.put(
-      '${url}/api/fs/put',
+      '$url/api/fs/put',
       options: Options(
         contentType: 'multipart/form-data',
         headers: {
-          'File-Path': Uri.encodeComponent('${remotePath}/${fileName}'),
+          'File-Path': Uri.encodeComponent('$remotePath/$fileName'),
           'Password': password,
           'Content-Length': fileData.length,
         },
@@ -197,7 +197,7 @@ class ObjectRepository extends Repository {
   }) async {
     final url = Get.find<UserStorage>().serverUrl.val;
     final response = await Repository.post(
-      '${url}/api/fs/dirs',
+      '$url/api/fs/dirs',
       data: {
         'path': path,
         'password': password,
@@ -218,7 +218,7 @@ class ObjectRepository extends Repository {
   }) async {
     final url = Get.find<UserStorage>().serverUrl.val;
     final response = await Repository.post(
-      '${url}/api/fs/search',
+      '$url/api/fs/search',
       data: {
         'keywords': keywords,
         'page': page,

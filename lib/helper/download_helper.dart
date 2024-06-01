@@ -116,7 +116,7 @@ class DownloadHelper {
 
     // 请求服务器获取下载地址
     final object = await ObjectRepository.get(
-      path: '${path}${name}',
+      path: '$path$name',
       password: password,
     );
 

@@ -20,7 +20,8 @@ class NewFijkSlider extends StatefulWidget {
   final NewFijkSliderColors colors;
 
   const NewFijkSlider({
-    Key? key,
+    super.key,
+    // Key? key,
     required this.value,
     required this.onChanged,
     this.cacheValue = 0.0,
@@ -51,7 +52,7 @@ class _NewFijkSliderState extends State<NewFijkSlider> {
 
     return GestureDetector(
       child: Container(
-        margin: EdgeInsets.only(left: margin, right: margin),
+        margin: const EdgeInsets.only(left: margin, right: margin),
         height: double.infinity,
         width: double.infinity,
         color: Colors.transparent,

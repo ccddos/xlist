@@ -58,7 +58,7 @@ class _AddServerBottomSheetState extends State<AddServerBottomSheet> {
 
     // 获取匿名用户信息
     try {
-      final response = await Dio().get('${url}/api/me');
+      final response = await Dio().get('$url/api/me');
       if (response.data['code'] == 200) {
         _isUrlValid = true;
         _server = ServerEntity(
@@ -109,7 +109,7 @@ class _AddServerBottomSheetState extends State<AddServerBottomSheet> {
 
       // 登录测试
       Response response = await Dio().post(
-        '${url}/api/auth/login',
+        '$url/api/auth/login',
         data: {'username': username, 'password': password},
       );
 
@@ -130,7 +130,7 @@ class _AddServerBottomSheetState extends State<AddServerBottomSheet> {
 
         // 重新登录
         SmartDialog.showLoading();
-        response = await Dio().post('${url}/api/auth/login', data: {
+        response = await Dio().post('$url/api/auth/login', data: {
           'username': username,
           'password': password,
           'otp_code': data.first

@@ -72,7 +72,7 @@ class ButtonHelper {
             pageTag: pageTag,
           ),
         ),
-        PullDownMenuDivider.large(),
+        const PullDownMenuDivider.large(),
         PullDownMenuItem(
           title: 'pull_down_upload_file'.tr,
           icon: CupertinoIcons.doc_on_clipboard,
@@ -105,7 +105,7 @@ class ButtonHelper {
             password: controller.password,
           ),
         ),
-        PullDownMenuDivider.large(),
+        const PullDownMenuDivider.large(),
       ]);
     }
 
@@ -131,7 +131,7 @@ class ButtonHelper {
 
     // 布局
     items.addAll([
-      PullDownMenuDivider.large(),
+      const PullDownMenuDivider.large(),
       PullDownMenuItem(
         title: 'pull_down_list'.tr,
         icon: layoutType == LayoutType.LIST ? CupertinoIcons.checkmark : null,
@@ -155,7 +155,7 @@ class ButtonHelper {
 
     // 排序
     items.addAll([
-      PullDownMenuDivider.large(),
+      const PullDownMenuDivider.large(),
       PullDownMenuItem(
         title: 'pull_down_time'.tr,
         icon: [0, 1].contains(sortType)

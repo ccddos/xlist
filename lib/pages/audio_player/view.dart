@@ -83,7 +83,7 @@ class AudioPlayerPage extends GetView<AudioPlayerController> {
           imageUrl: controller.object.value.thumb ?? '',
           fit: BoxFit.cover,
           placeholder: (context, url) =>
-              CupertinoActivityIndicator(radius: 13.0),
+              const CupertinoActivityIndicator(radius: 13.0),
           errorWidget: (context, url, error) => Assets.common.logo.image(),
         ),
       ),
@@ -93,7 +93,7 @@ class AudioPlayerPage extends GetView<AudioPlayerController> {
   /// 构建单个文件
   Widget _buildSingleFile() {
     return Container(
-      key: PageStorageKey('single'),
+      key: const PageStorageKey('single'),
       alignment: Alignment.topCenter,
       padding: EdgeInsets.only(top: CommonUtils.isPad ? 20 : 100.h),
       child: Column(
@@ -123,7 +123,7 @@ class AudioPlayerPage extends GetView<AudioPlayerController> {
   /// 播放列表
   Widget _buildPlaylist() {
     return Container(
-      key: PageStorageKey('playlist'),
+      key: const PageStorageKey('playlist'),
       padding: EdgeInsets.only(
           top: CommonUtils.isPad ? 20 : 100.h, left: 50.w, right: 50.w),
       child: Column(
@@ -151,7 +151,7 @@ class AudioPlayerPage extends GetView<AudioPlayerController> {
           SizedBox(height: 60.h),
           Expanded(
             child: ListView.builder(
-              physics: AlwaysScrollableScrollPhysics(
+              physics: const AlwaysScrollableScrollPhysics(
                 parent: BouncingScrollPhysics(),
               ),
               itemCount: controller.objects.length,

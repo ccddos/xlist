@@ -23,7 +23,7 @@ class Homepage extends GetView<HomepageController> {
   Widget _buildSliverNavigationBar() {
     return CupertinoSliverNavigationBar(
       backgroundColor:
-          Get.isDarkMode ? Color.fromARGB(255, 18, 18, 18) : Colors.white,
+          Get.isDarkMode ? const Color.fromARGB(255, 18, 18, 18) : Colors.white,
       border: Border.all(width: 0, color: Colors.transparent),
       leading: CupertinoButton(
         padding: EdgeInsets.zero,
@@ -86,7 +86,7 @@ class Homepage extends GetView<HomepageController> {
             'homepage_empty_server_button'.tr,
             onPressed: () async {
               final result = await BottomSheetHelper.showBottomSheet(
-                AddServerBottomSheet(),
+                const AddServerBottomSheet(),
               );
               if (result == null) return;
               if (!(result is ServerEntity)) return;
@@ -112,7 +112,7 @@ class Homepage extends GetView<HomepageController> {
       return SliverToBoxAdapter(
         child: Padding(
           padding: EdgeInsets.only(top: 500.h),
-          child: CupertinoActivityIndicator(),
+          child: const CupertinoActivityIndicator(),
         ),
       );
     }
@@ -146,7 +146,7 @@ class Homepage extends GetView<HomepageController> {
       controller: controller.scrollController,
       slivers: <Widget>[
         _buildSliverNavigationBar(),
-        HeaderLocator.sliver(),
+        const HeaderLocator.sliver(),
         SliverPadding(
           padding:
               EdgeInsets.symmetric(horizontal: CommonUtils.isPad ? 20 : 50.r)
@@ -163,7 +163,7 @@ class Homepage extends GetView<HomepageController> {
                 : _buildSliverList(),
           ),
         ),
-        FooterLocator.sliver(),
+        const FooterLocator.sliver(),
       ],
     );
   }
@@ -174,9 +174,9 @@ class Homepage extends GetView<HomepageController> {
       child: SafeArea(
         child: EasyRefresh(
           controller: controller.easyRefreshController,
-          header: CupertinoHeader(
+          header: const CupertinoHeader(
               position: IndicatorPosition.locator, safeArea: false),
-          footer: CupertinoFooter(position: IndicatorPosition.locator),
+          footer: const CupertinoFooter(position: IndicatorPosition.locator),
           onRefresh: () async {
             await HapticFeedback.selectionClick();
             await controller.getObjectList();

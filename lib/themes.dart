@@ -6,8 +6,8 @@ class Themes {
   // Light
   static final light = FlexThemeData.light(
     scheme: FlexScheme.flutterDash,
-    primary: Color(0xFF7778dc),
-    secondary: Color(0xFF81aad3),
+    primary: const Color(0xFF7778dc),
+    secondary: const Color(0xFF81aad3),
   ).copyWith(
     splashColor: Colors.transparent,
     highlightColor: Colors.transparent,
@@ -17,13 +17,13 @@ class Themes {
   // Dark
   static final dark = FlexThemeData.dark(
     scheme: FlexScheme.flutterDash,
-    primary: Color(0xFF7778dc),
-    secondary: Color(0xFF81aad3),
+    primary: const Color(0xFF7778dc),
+    secondary: const Color(0xFF81aad3),
   ).copyWith(
     splashColor: Colors.transparent,
     highlightColor: Colors.transparent,
     splashFactory: NoSplash.splashFactory,
-    cupertinoOverrideTheme: CupertinoThemeData(
+    cupertinoOverrideTheme: const CupertinoThemeData(
       textTheme: CupertinoTextThemeData(),
     ),
   );

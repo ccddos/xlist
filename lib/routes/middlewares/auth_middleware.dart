@@ -13,7 +13,7 @@ class AuthMiddleware extends GetMiddleware {
 
     UserStorage _storage = Get.find<UserStorage>();
     if (GetUtils.isNullOrBlank(_storage.serverId.val)!) {
-      return RouteSettings(name: Routes.HOMEPAGE);
+      return const RouteSettings(name: Routes.HOMEPAGE);
     }
   }
 }

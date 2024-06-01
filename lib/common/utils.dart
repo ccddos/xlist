@@ -1,9 +1,7 @@
-import 'dart:ui';
 import 'dart:math';
 
 import 'package:get/get.dart';
 import 'package:path/path.dart' as p;
-import 'package:flutter/services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:vivysub_utils/vivysub_utils.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -60,8 +58,8 @@ class CommonUtils {
 
   /// 获取背景颜色
   static Color get backgroundColor => Get.isDarkMode
-      ? Color.fromARGB(255, 18, 18, 18)
-      : Color.fromARGB(255, 242, 242, 247);
+      ? const Color.fromARGB(255, 18, 18, 18)
+      : const Color.fromARGB(255, 242, 242, 247);
 
   /// 获取导航栏 icon 大小
   static double get navIconSize => isPad ? 25 : 70.sp;
@@ -94,7 +92,7 @@ class CommonUtils {
     final serverUrl = Get.find<UserStorage>().serverUrl.val;
 
     // encode path
-    '${basePath}${path}${object.name}'.split('/').forEach((v) {
+    '$basePath$path${object.name}'.split('/').forEach((v) {
       if (v.isNotEmpty) encodePath += '/${Uri.encodeComponent(v)}';
     });
 
@@ -103,7 +101,7 @@ class CommonUtils {
         ? '?sign=${object.sign}'
         : '';
 
-    return '${serverUrl}/d${encodePath}${sign}';
+    return '$serverUrl/d$encodePath$sign';
   }
 
   /// 排序对象列表

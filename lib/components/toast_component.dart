@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ToastComponent extends StatelessWidget {
   final String message;
-  ToastComponent({Key? key, required this.message}) : super(key: key);
+  const ToastComponent({Key? key, required this.message}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

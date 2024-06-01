@@ -24,8 +24,8 @@ class TextFieldHelper {
         ),
         SizedBox(width: CommonUtils.isPad ? 5 : 10.w),
         isRequired
-            ? Text('*', style: TextStyle(color: Colors.red))
-            : SizedBox(),
+            ? const Text('*', style: TextStyle(color: Colors.red))
+            : const SizedBox(),
       ],
     );
 
@@ -40,7 +40,7 @@ class TextFieldHelper {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          title.isEmpty ? SizedBox() : _title,
+          title.isEmpty ? const SizedBox() : _title,
           TextField(
             controller: controller,
             keyboardType: keyboardType,

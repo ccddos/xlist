@@ -117,7 +117,7 @@ class DocumentPage extends GetView<DocumentController> {
   // 页面
   Widget _buildPageInfo() {
     if (controller.isLoading.isTrue) {
-      return Center(child: CupertinoActivityIndicator());
+      return const Center(child: CupertinoActivityIndicator());
     }
 
     // 代码类型
@@ -152,7 +152,7 @@ class DocumentPage extends GetView<DocumentController> {
                 backgroundColor: Colors.transparent,
                 minHeight: 2,
               )
-            : SizedBox(),
+            : const SizedBox(),
       ],
     );
   }

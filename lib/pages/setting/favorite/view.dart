@@ -58,7 +58,7 @@ class FavoritePage extends GetView<FavoriteController> {
           width: double.infinity,
           child: Slidable(
             endActionPane: ActionPane(
-              motion: ScrollMotion(),
+              motion: const ScrollMotion(),
               children: [
                 SlidableAction(
                   onPressed: (context) => controller.deleteFavorite(entity),
@@ -134,7 +134,7 @@ class FavoritePage extends GetView<FavoriteController> {
 
   /// Loading
   Widget _buildLoading() {
-    return Center(child: CupertinoActivityIndicator());
+    return const Center(child: CupertinoActivityIndicator());
   }
 
   /// EmptyData
@@ -154,7 +154,7 @@ class FavoritePage extends GetView<FavoriteController> {
   Widget _buildCustomScrollView() {
     return CustomScrollView(
       shrinkWrap: false,
-      physics: AlwaysScrollableScrollPhysics(),
+      physics: const AlwaysScrollableScrollPhysics(),
       controller: controller.scrollController,
       slivers: <Widget>[
         SliverToBoxAdapter(
@@ -169,7 +169,7 @@ class FavoritePage extends GetView<FavoriteController> {
                       style: Get.textTheme.bodySmall,
                     ),
                   )
-                : SizedBox(),
+                : const SizedBox(),
           ),
         ),
         SliverPadding(

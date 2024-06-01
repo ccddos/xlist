@@ -53,7 +53,7 @@ class DocumentController extends GetxController {
     super.onInit();
 
     // 获取文档地址
-    object.value = await ObjectRepository.get(path: '${path}${name}');
+    object.value = await ObjectRepository.get(path: '$path$name');
     userInfo.value = await UserRepository.me(); // 获取用户信息
     httpHeaders.value = await DriverHelper.getHeaders(
         object.value.provider, object.value.rawUrl);

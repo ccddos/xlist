@@ -31,7 +31,7 @@ class ServerPage extends GetView<ServerController> {
         child: Text('setting_server_new'.tr),
         onPressed: () async {
           final result =
-              await BottomSheetHelper.showBottomSheet(AddServerBottomSheet());
+              await BottomSheetHelper.showBottomSheet(const AddServerBottomSheet());
 
           if (result == null) return;
           if (!(result is ServerEntity)) return;
@@ -67,7 +67,7 @@ class ServerPage extends GetView<ServerController> {
     return CupertinoListSection.insetGrouped(
       backgroundColor: CommonUtils.backgroundColor,
       margin: CommonUtils.isPad
-          ? EdgeInsets.symmetric(horizontal: 20, vertical: 5)
+          ? const EdgeInsets.symmetric(horizontal: 20, vertical: 5)
           : EdgeInsets.symmetric(horizontal: 50.w, vertical: 15.h),
       children: [
         Container(
@@ -75,7 +75,7 @@ class ServerPage extends GetView<ServerController> {
           width: double.infinity,
           child: Slidable(
             endActionPane: ActionPane(
-              motion: ScrollMotion(),
+              motion: const ScrollMotion(),
               children: [
                 SlidableAction(
                   onPressed: (context) => controller.switchServer(server),
@@ -158,7 +158,7 @@ class ServerPage extends GetView<ServerController> {
                     style: Get.textTheme.bodySmall,
                   ),
                 )
-              : SizedBox(),
+              : const SizedBox(),
           _buildItem(index),
         ],
       ),
@@ -172,7 +172,7 @@ class ServerPage extends GetView<ServerController> {
       backgroundColor: CommonUtils.backgroundColor,
       child: Obx(
         () => controller.isFirstLoading.isTrue
-            ? Center(child: CupertinoActivityIndicator())
+            ? const Center(child: CupertinoActivityIndicator())
             : _buildListView(),
       ),
     );

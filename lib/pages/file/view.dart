@@ -46,7 +46,7 @@ class FilePage extends GetView<FileController> {
         ),
         SizedBox(height: 5.h),
         Text(
-          '${'file_size'.tr}: ${fileSize}',
+          '${'file_size'.tr}: $fileSize',
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: Get.textTheme.bodySmall,
@@ -58,7 +58,7 @@ class FilePage extends GetView<FileController> {
   // 页面
   Widget _buildPageInfo() {
     if (controller.isLoading.isTrue) {
-      return Center(child: CupertinoActivityIndicator());
+      return const Center(child: CupertinoActivityIndicator());
     }
 
     return SingleChildScrollView(

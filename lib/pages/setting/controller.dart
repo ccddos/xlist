@@ -55,9 +55,9 @@ class SettingController extends GetxController {
     final value = await showModalActionSheet(
       context: Get.overlayContext!,
       actions: [
-        SheetAction(label: '跟随系统', key: 'system'),
-        SheetAction(label: '明亮', key: 'light'),
-        SheetAction(label: '深邃', key: 'dark'),
+        const SheetAction(label: '跟随系统', key: 'system'),
+        const SheetAction(label: '明亮', key: 'light'),
+        const SheetAction(label: '深邃', key: 'dark'),
       ],
       cancelLabel: '取消',
     );
@@ -66,7 +66,7 @@ class SettingController extends GetxController {
       Get.changeThemeMode(ThemeModeMap[value]!);
       themeModeText.value = ThemeModeTextMap[value]!;
       Get.find<CommonStorage>().themeMode.val = value;
-      Future.delayed(Duration(milliseconds: 200), () {
+      Future.delayed(const Duration(milliseconds: 200), () {
         Get.forceAppUpdate();
       });
     }

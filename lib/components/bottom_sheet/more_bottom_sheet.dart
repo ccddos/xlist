@@ -81,7 +81,7 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
   }) {
     return CupertinoListSection.insetGrouped(
       backgroundColor: CommonUtils.backgroundColor,
-      margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+      margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
       hasLeading: false,
       children: [
         CupertinoListTile(
@@ -125,9 +125,9 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
                       );
                     },
                   )
-                : SizedBox(),
+                : const SizedBox(),
             object.isDir!
-                ? SizedBox()
+                ? const SizedBox()
                 : _buildListItem(
                     title: 'download'.tr,
                     icon: CupertinoIcons.cloud_download,
@@ -173,7 +173,7 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
                       });
                     },
                   )
-                : SizedBox(),
+                : const SizedBox(),
             PermissionHelper.canCopy(widget.userInfo)
                 ? _buildListItem(
                     title: 'copy'.tr,
@@ -190,7 +190,7 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
                       });
                     },
                   )
-                : SizedBox(),
+                : const SizedBox(),
             PermissionHelper.canDelete(widget.userInfo)
                 ? _buildListItem(
                     title: 'delete'.tr,
@@ -206,7 +206,7 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
                       );
                     },
                   )
-                : SizedBox(),
+                : const SizedBox(),
           ],
         ),
       ),

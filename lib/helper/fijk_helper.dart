@@ -48,7 +48,7 @@ class FijkHelper {
     headers?.forEach((key, value) {
       key.toLowerCase() == 'user-agent'
           ? player.setOption(FijkOption.formatCategory, 'user_agent', value)
-          : requestHeaders += '${key}:${value}\r\n';
+          : requestHeaders += '$key:$value\r\n';
     });
 
     player.setOption(FijkOption.formatCategory, 'headers', requestHeaders);

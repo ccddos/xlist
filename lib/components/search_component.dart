@@ -8,12 +8,12 @@ import 'package:xlist/routes/app_pages.dart';
 
 class SearchComponent extends StatelessWidget {
   final String path;
-  SearchComponent({Key? key, required this.path}) : super(key: key);
+  const SearchComponent({Key? key, required this.path}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final backgroundColor =
-        Get.isDarkMode ? Color.fromARGB(255, 42, 42, 45) : Colors.grey[200];
+        Get.isDarkMode ? const Color.fromARGB(255, 42, 42, 45) : Colors.grey[200];
     final color = Get.isDarkMode ? Colors.grey[500] : Colors.grey[600];
 
     return GestureDetector(
@@ -26,13 +26,13 @@ class SearchComponent extends StatelessWidget {
         ),
         child: Row(
           children: [
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Icon(
               CupertinoIcons.search,
               size: CommonUtils.isPad ? 23 : 55.sp,
               color: color,
             ),
-            SizedBox(width: 5),
+            const SizedBox(width: 5),
             Text(
               'search'.tr,
               style: Get.textTheme.bodyLarge?.copyWith(color: color),

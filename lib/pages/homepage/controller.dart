@@ -5,7 +5,6 @@ import 'package:easy_refresh/easy_refresh.dart';
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
-import 'package:xlist/models/user.dart';
 import 'package:xlist/common/index.dart';
 import 'package:xlist/models/index.dart';
 import 'package:xlist/services/index.dart';

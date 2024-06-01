@@ -42,7 +42,7 @@ class DetailController extends GetxController {
 
     // 获取目录密码
     final passwordManager = await DatabaseService.to.database.passwordManagerDao
-        .findPasswordManagerByPath(serverId, '${path}${name}');
+        .findPasswordManagerByPath(serverId, '$path$name');
     if (passwordManager != null && passwordManager.isNotEmpty) {
       password = passwordManager.last.password;
     }
@@ -64,7 +64,7 @@ class DetailController extends GetxController {
   Future<void> getObjectList({bool refresh = false}) async {
     try {
       final response = await ObjectRepository.getList(
-        path: '${path}${name}',
+        path: '$path$name',
         password: password,
         refresh: refresh,
       );
@@ -102,7 +102,7 @@ class DetailController extends GetxController {
         await DatabaseService.to.database.passwordManagerDao
             .insertPasswordManager(
           PasswordManagerEntity(
-              serverId: serverId, path: '${path}${name}', password: text.first),
+              serverId: serverId, path: '$path$name', password: text.first),
         );
 
         password = text.first;

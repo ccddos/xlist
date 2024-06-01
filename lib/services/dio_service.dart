@@ -73,8 +73,4 @@ class DioInterceptors extends Interceptor {
     handler.next(response);
   }
 
-  @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
-    return super.onError(err, handler);
-  }
 }

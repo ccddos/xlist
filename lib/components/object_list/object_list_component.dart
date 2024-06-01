@@ -107,7 +107,7 @@ class _ObjectListComponentState extends State<ObjectListComponent> {
             child: Slidable(
               startActionPane: PermissionHelper.canDelete(widget.userInfo)
                   ? ActionPane(
-                      motion: ScrollMotion(),
+                      motion: const ScrollMotion(),
                       children: [
                         SlidableAction(
                           flex: 1,
@@ -128,7 +128,7 @@ class _ObjectListComponentState extends State<ObjectListComponent> {
                     )
                   : null,
               endActionPane: ActionPane(
-                motion: ScrollMotion(),
+                motion: const ScrollMotion(),
                 children: _buildSlidableAction(objects[index]),
               ),
               child: Column(

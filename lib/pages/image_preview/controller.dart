@@ -1,4 +1,3 @@
-import 'dart:typed_data';
 
 import 'package:get/get.dart';
 import 'package:dio/dio.dart';
@@ -45,7 +44,7 @@ class ImagePreviewController extends GetxController {
     pageController = PageController(initialPage: currentIndex.value);
 
     // 获取头信息
-    final object = await ObjectRepository.get(path: '${path}${name}');
+    final object = await ObjectRepository.get(path: '$path$name');
     imageHeaders.value =
         await DriverHelper.getHeaders(object.provider, object.rawUrl);
 
@@ -53,7 +52,7 @@ class ImagePreviewController extends GetxController {
     if (object.provider!.startsWith(Provider.Cloud115)) {
       for (var i = 0; i < objects.length; i++) {
         final _response =
-            await ObjectRepository.get(path: '${path}${objects[i].name}');
+            await ObjectRepository.get(path: '$path${objects[i].name}');
         imageUrls.add(_response.rawUrl!);
       }
     } else {

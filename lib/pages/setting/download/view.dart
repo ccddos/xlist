@@ -52,7 +52,7 @@ class DownloadPage extends GetView<DownloadController> {
     return CupertinoListSection.insetGrouped(
       backgroundColor: CommonUtils.backgroundColor,
       margin: CommonUtils.isPad
-          ? EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 5)
+          ? const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 5)
           : EdgeInsets.symmetric(horizontal: 50.w).copyWith(bottom: 30.h),
       children: [
         Container(
@@ -61,7 +61,7 @@ class DownloadPage extends GetView<DownloadController> {
           child: Slidable(
             startActionPane: task.status == DownloadTaskStatus.complete
                 ? ActionPane(
-                    motion: ScrollMotion(),
+                    motion: const ScrollMotion(),
                     children: [
                       SlidableAction(
                         onPressed: (context) => Share.shareXFiles(
@@ -75,7 +75,7 @@ class DownloadPage extends GetView<DownloadController> {
                   )
                 : null,
             endActionPane: ActionPane(
-              motion: ScrollMotion(),
+              motion: const ScrollMotion(),
               children: [
                 task.status == DownloadTaskStatus.running
                     ? SlidableAction(
@@ -86,7 +86,7 @@ class DownloadPage extends GetView<DownloadController> {
                         foregroundColor: Colors.white,
                         label: 'paused'.tr,
                       )
-                    : SizedBox(),
+                    : const SizedBox(),
                 task.status == DownloadTaskStatus.paused
                     ? SlidableAction(
                         onPressed: (context) =>
@@ -96,7 +96,7 @@ class DownloadPage extends GetView<DownloadController> {
                         foregroundColor: Colors.white,
                         label: 'resume'.tr,
                       )
-                    : SizedBox(),
+                    : const SizedBox(),
                 SlidableAction(
                   onPressed: (context) =>
                       controller.delete(entity.id!, task.taskId),
@@ -158,7 +158,7 @@ class DownloadPage extends GetView<DownloadController> {
       return SliverToBoxAdapter(
         child: Padding(
           padding: EdgeInsets.only(top: 500.h),
-          child: CupertinoActivityIndicator(),
+          child: const CupertinoActivityIndicator(),
         ),
       );
     }
@@ -193,7 +193,7 @@ class DownloadPage extends GetView<DownloadController> {
     return CustomScrollView(
       shrinkWrap: false,
       controller: controller.scrollController,
-      physics: AlwaysScrollableScrollPhysics(),
+      physics: const AlwaysScrollableScrollPhysics(),
       slivers: <Widget>[
         SliverToBoxAdapter(
           child: controller.tasks.isNotEmpty
@@ -207,7 +207,7 @@ class DownloadPage extends GetView<DownloadController> {
                         style: Get.textTheme.bodySmall),
                   ),
                 )
-              : SizedBox(),
+              : const SizedBox(),
         ),
         Obx(() => SizeCacheWidget(child: _buildSliverList())),
       ],
@@ -221,7 +221,7 @@ class DownloadPage extends GetView<DownloadController> {
       backgroundColor: CommonUtils.backgroundColor,
       child: Obx(
         () => controller.isFirstLoading.isTrue
-            ? Center(child: CupertinoActivityIndicator())
+            ? const Center(child: CupertinoActivityIndicator())
             : _buildCustomScrollView(),
       ),
     );

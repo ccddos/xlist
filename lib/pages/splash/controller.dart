@@ -9,10 +9,6 @@ import 'package:xlist/constants/index.dart';
 import 'package:xlist/routes/app_pages.dart';
 
 class SplashController extends GetxController {
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
   @override
   void onReady() {

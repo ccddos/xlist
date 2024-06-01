@@ -7,10 +7,6 @@ class SettingDocumentController extends GetxController {
   final documentSupportTypes =
       Get.find<PreferencesStorage>().documentSupportTypes.val.obs;
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
   /// 切换文档支持类型
   /// [type] 文档类型

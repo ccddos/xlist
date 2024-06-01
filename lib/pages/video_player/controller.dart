@@ -22,7 +22,6 @@ import 'package:xlist/services/index.dart';
 import 'package:xlist/storages/index.dart';
 import 'package:xlist/constants/index.dart';
 import 'package:xlist/repositorys/index.dart';
-import 'package:xlist/helper/fijk_helper.dart';
 import 'package:xlist/database/entity/index.dart';
 
 class VideoPlayerController extends SuperController {
@@ -94,7 +93,7 @@ class VideoPlayerController extends SuperController {
     // 获取视频播放地址
     if (file.isEmpty) {
       try {
-        object.value = await ObjectRepository.get(path: '${path}${name}');
+        object.value = await ObjectRepository.get(path: '$path$name');
         httpHeaders.value = await DriverHelper.getHeaders(
             object.value.provider, object.value.rawUrl);
       } catch (e) {
@@ -108,11 +107,11 @@ class VideoPlayerController extends SuperController {
         'name': download?.name,
         'type': download?.type,
         'size': download?.size,
-        'raw_url': 'file://${file}',
+        'raw_url': 'file://$file',
       });
 
       // 尝试更新一下字幕
-      ObjectRepository.get(path: '${path}${name}').then((value) {
+      ObjectRepository.get(path: '$path$name').then((value) {
         updateSubtitleNameList(value.related ?? []);
       });
     }
@@ -228,7 +227,7 @@ class VideoPlayerController extends SuperController {
   /// 通知栏控制器
   void _playerNotificationHandler() {
     _mediaItem = MediaItem(
-      id: '${path}${currentName.value}',
+      id: '$path${currentName.value}',
       title: CommonUtils.formatFileNme(currentName.value),
       duration: player.value.duration,
       artUri: object.value.thumb != null && object.value.thumb!.isNotEmpty
@@ -253,7 +252,7 @@ class VideoPlayerController extends SuperController {
     // 获取视频播放地址
     SmartDialog.showLoading();
     try {
-      object.value = await ObjectRepository.get(path: '${path}${_object.name}');
+      object.value = await ObjectRepository.get(path: '$path${_object.name}');
     } catch (e) {
       SmartDialog.dismiss();
       SmartDialog.showToast(e.toString());
@@ -323,7 +322,7 @@ class VideoPlayerController extends SuperController {
       }
 
       player.pause();
-      Future.delayed(Duration(milliseconds: 500), () {
+      Future.delayed(const Duration(milliseconds: 500), () {
         player.selectTrack(int.parse(value!));
         player.seekTo(currentPos.value.inMilliseconds);
         player.start();
@@ -348,7 +347,7 @@ class VideoPlayerController extends SuperController {
     if (value == null) {
       value = await showModalActionSheet(
         context: Get.overlayContext!,
-        materialConfiguration: MaterialModalActionSheetConfiguration(),
+        materialConfiguration: const MaterialModalActionSheetConfiguration(),
         title: 'video_switch_subtitle'.tr,
         actions: [
           ...subtitleNameList.map(
@@ -398,7 +397,7 @@ class VideoPlayerController extends SuperController {
       }
 
       player.pause();
-      Future.delayed(Duration(milliseconds: 500), () async {
+      Future.delayed(const Duration(milliseconds: 500), () async {
         await player.selectTrack(int.parse(_value));
         await player.seekTo(currentPos.value.inMilliseconds);
         await player.start();
@@ -411,7 +410,7 @@ class VideoPlayerController extends SuperController {
 
     try {
       SmartDialog.showLoading(msg: 'toast_switch_loading'.tr);
-      final _object = await ObjectRepository.get(path: '${path}${value}');
+      final _object = await ObjectRepository.get(path: '$path$value');
       final response = await DioService.to.dio.get(
         _object.rawUrl!,
         options: Options(
@@ -493,7 +492,7 @@ class VideoPlayerController extends SuperController {
 
     // 每五秒记录一下播放进度
     _timer?.cancel();
-    _timer = Timer.periodic(Duration(seconds: 5), (timer) async {
+    _timer = Timer.periodic(const Duration(seconds: 5), (timer) async {
       await DatabaseService.to.database.progressDao.updateProgress(
         ProgressEntity(
           id: _progressId,
@@ -549,7 +548,7 @@ class VideoPlayerController extends SuperController {
     }
 
     // fix player seekTo bug
-    Future.delayed(Duration(milliseconds: 500), () async {
+    Future.delayed(const Duration(milliseconds: 500), () async {
       if (isLargeFile) await player.seekTo(currentPos.value.inMilliseconds);
 
       if (player.value.state == FijkState.paused && isAutoPaused.isTrue) {

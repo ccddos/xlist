@@ -30,7 +30,7 @@ class AboutPage extends GetView<AboutController> {
   }) {
     return CupertinoListTile(
       title: Text(title, style: Get.textTheme.bodyLarge),
-      padding: EdgeInsets.only(left: 15, right: 10),
+      padding: const EdgeInsets.only(left: 15, right: 10),
       leading: Icon(
         icon,
         size: CommonUtils.navIconSize,
@@ -88,7 +88,7 @@ class AboutPage extends GetView<AboutController> {
   /// 版权信息
   Widget _buildCopyRight() {
     return Container(
-      padding: EdgeInsets.only(bottom: 30),
+      padding: const EdgeInsets.only(bottom: 30),
       child: Column(children: [
         Text(
           '© 2023 xlist.io',

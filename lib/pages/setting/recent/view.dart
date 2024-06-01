@@ -58,7 +58,7 @@ class RecentPage extends GetView<RecentController> {
           width: double.infinity,
           child: Slidable(
             endActionPane: ActionPane(
-              motion: ScrollMotion(),
+              motion: const ScrollMotion(),
               children: [
                 SlidableAction(
                   onPressed: (context) => controller.deleteRecent(entity),
@@ -134,7 +134,7 @@ class RecentPage extends GetView<RecentController> {
 
   /// Loading
   Widget _buildLoading() {
-    return Center(child: CupertinoActivityIndicator());
+    return const Center(child: CupertinoActivityIndicator());
   }
 
   /// EmptyData
@@ -154,7 +154,7 @@ class RecentPage extends GetView<RecentController> {
   Widget _buildCustomScrollView() {
     return CustomScrollView(
       shrinkWrap: false,
-      physics: AlwaysScrollableScrollPhysics(),
+      physics: const AlwaysScrollableScrollPhysics(),
       controller: controller.scrollController,
       slivers: <Widget>[
         SliverToBoxAdapter(
@@ -169,7 +169,7 @@ class RecentPage extends GetView<RecentController> {
                       style: Get.textTheme.bodySmall,
                     ),
                   )
-                : SizedBox(),
+                : const SizedBox(),
           ),
         ),
         SliverPadding(

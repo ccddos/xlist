@@ -59,7 +59,7 @@ class _ObjectGridComponentState extends State<ObjectGridComponent> {
     }
 
     return SliverPadding(
-      padding: EdgeInsets.symmetric(horizontal: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       sliver: SliverGrid(
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: CommonUtils.isPad ? 130 : 300.w,

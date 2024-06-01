@@ -7,10 +7,6 @@ class SettingVideoController extends GetxController {
   final videoSupportTypes =
       Get.find<PreferencesStorage>().videoSupportTypes.val.obs;
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
   /// 切换视频支持类型
   /// [type] 视频类型

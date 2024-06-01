@@ -7,10 +7,6 @@ class SettingAudioController extends GetxController {
   final audioSupportTypes =
       Get.find<PreferencesStorage>().audioSupportTypes.val.obs;
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
   /// 切换音频支持类型
   /// [type] 音频类型

@@ -46,7 +46,7 @@ class _ObjectListItemState extends State<ObjectListItem>
                 imageUrl: object.thumb!,
                 fit: BoxFit.cover,
                 placeholder: (context, url) =>
-                    CupertinoActivityIndicator(radius: 8.0),
+                    const CupertinoActivityIndicator(radius: 8.0),
                 errorWidget: (context, url, error) =>
                     Assets.common.logo.image(),
               ),
@@ -65,7 +65,7 @@ class _ObjectListItemState extends State<ObjectListItem>
                     ),
                   ),
                 )
-              : SizedBox(),
+              : const SizedBox(),
         ],
       );
     }
@@ -98,7 +98,7 @@ class _ObjectListItemState extends State<ObjectListItem>
         ),
         SizedBox(height: 7.h),
         Text(
-          '${modified}${object.isDir! ? '∞' : CommonUtils.formatFileSize(object.size!)}',
+          '$modified${object.isDir! ? '∞' : CommonUtils.formatFileSize(object.size!)}',
           style: Get.textTheme.bodySmall,
         ),
       ],
@@ -107,10 +107,10 @@ class _ObjectListItemState extends State<ObjectListItem>
 
   /// 构建箭头
   Widget _buildChevron() {
-    if (object.isDir != true) return SizedBox();
+    if (object.isDir != true) return const SizedBox();
     return Padding(
       padding: EdgeInsets.only(right: 20.r),
-      child: CupertinoListTileChevron(),
+      child: const CupertinoListTileChevron(),
     );
   }
 

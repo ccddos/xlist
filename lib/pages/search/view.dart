@@ -38,7 +38,7 @@ class SearchPage extends GetView<SearchController> {
               child: CupertinoButton(
                 padding: EdgeInsets.zero,
                 alignment: Alignment.centerRight,
-                child: Text('取消'),
+                child: const Text('取消'),
                 onPressed: () => Get.back(),
               ),
             )
@@ -52,9 +52,9 @@ class SearchPage extends GetView<SearchController> {
   Widget _buildSliverList() {
     if (CommonUtils.isPad) {
       return SliverPadding(
-        padding: EdgeInsets.symmetric(horizontal: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 5),
         sliver: SliverGrid(
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 160,
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
@@ -171,7 +171,7 @@ class SearchPage extends GetView<SearchController> {
   Widget _buildCustomScrollView() {
     return CustomScrollView(
       shrinkWrap: false,
-      physics: GetPlatform.isAndroid ? BouncingScrollPhysics() : null,
+      physics: GetPlatform.isAndroid ? const BouncingScrollPhysics() : null,
       controller: controller.scrollController,
       slivers: <Widget>[
         _buildSearchBar(),
