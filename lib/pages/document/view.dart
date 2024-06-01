@@ -63,10 +63,11 @@ class DocumentPage extends GetView<DocumentController> {
 
   // WebView
   Widget _buildInAppWebView() {
+    // Uri.parse(controller.object.value.rawUrl ?? ''),
     return InAppWebView(
       key: controller.webViewKey,
       initialUrlRequest: URLRequest(
-        url: Uri.parse(controller.object.value.rawUrl ?? ''),
+        url: WebUri(controller.object.value.rawUrl ?? ''),
         headers: controller.httpHeaders,
       ),
       initialOptions: controller.options,
