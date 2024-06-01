@@ -11,13 +11,16 @@ import 'package:xlist/routes/app_pages.dart';
 import 'package:xlist/pages/splash/index.dart';
 import 'package:xlist/langs/translation_service.dart';
 
-void main() => Global.init().then((e) => runApp(Phoenix(child: XlistApp())));
+void main() =>
+    Global.init().then((e) => runApp(Phoenix(child: const XlistApp())));
 
 class XlistApp extends StatelessWidget {
+  const XlistApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(1080, 1920),
+      designSize: const Size(1080, 1920),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) => GetMaterialApp(
@@ -25,7 +28,7 @@ class XlistApp extends StatelessWidget {
         theme: Themes.light,
         darkTheme: Themes.dark,
         themeMode: ThemeMode.light,
-        home: SplashPage(),
+        home: const SplashPage(),
         initialBinding: SplashBinding(),
         defaultTransition: Transition.cupertino,
         debugShowCheckedModeBanner: false,

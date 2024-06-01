@@ -2,8 +2,10 @@ package_rename_config:
   android:
     app_name: myList
     package_name: org.foss.myList
-    override_old_package: # (Optional) (String) Use this to delete the old folder structure of MainActivity or to use the existing code with the new package name
-    lang: # (Optional) (String) The android development language {kotlin(default) or java}
+    override_old_package: "org.foss.myList"
+    lang: kotlin # (Optional) (String) The android development language {kotlin(default) or java}
+
+
 
   ios:
     app_name: # (String) The display name of the ios app
