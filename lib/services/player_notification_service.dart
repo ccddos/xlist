@@ -20,12 +20,12 @@ class PlayerNotificationService extends GetxService {
   Future<PlayerNotificationService> init() async {
     _audioHandler = await AudioService.init(
       builder: () => PlayerNotificationHandler(),
-      config: AudioServiceConfig(
-        androidNotificationChannelId: 'io.xlist.channel.audio',
-        androidNotificationChannelName: 'Xlist playback',
+      config: const AudioServiceConfig(
+        androidNotificationChannelId: 'org.foss.myList.channel.audio',
+        androidNotificationChannelName: 'myList playback',
         androidNotificationOngoing: true,
-        rewindInterval: const Duration(seconds: 15),
-        fastForwardInterval: const Duration(seconds: 15),
+        rewindInterval: Duration(seconds: 15),
+        fastForwardInterval: Duration(seconds: 15),
       ),
     );
     return this;
