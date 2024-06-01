@@ -10,8 +10,10 @@ import 'package:xlist/components/index.dart';
 import 'package:xlist/routes/app_pages.dart';
 import 'package:xlist/pages/splash/index.dart';
 import 'package:xlist/langs/translation_service.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 
-void main() => Global.init().then((e) => runApp(Phoenix(child: XlistApp())));
+void main() =>
+    Global.init().then((e) => runApp(Phoenix(child: const XlistApp())));
 
 class XlistApp extends StatelessWidget {
   const XlistApp({super.key});
